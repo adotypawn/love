@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>i love you</title>
+</head>
+<body>
+    <audio id="musikLatar" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="ui" onclick="putarMusik()"> <div style="color: white; position: fixed; top: 10px; left: 10px; z-index: 9999; font-size: 0.8rem; opacity: 0.5;">
+            Tap/Klik untuk Musik 🎵
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('ui');
+        const audio = document.getElementById('musikLatar');
+        const jumlah = 100;
+
+        // Fungsi putar musik saat layar diklik
+        function putarMusik() {
+            audio.play();
+        }
+
+        // Loop pembuatan teks (Tetap sama seperti sebelumnya)
+        for (let i = 1; i <= jumlah; i++) {
+            const delay = i * -300;
+            const loveDiv = document.createElement('div');
+            loveDiv.className = 'love';
+            loveDiv.innerHTML = `
+                <div class="love_horizontal" style="animation-delay: ${delay}ms;">
+                    <div class="love_vertical" style="animation-delay: ${delay}ms;">
+                        <div class="love_word">I Love You</div>
+                    </div>
+                </div>`;
+            container.appendChild(loveDiv);
+        }
+    </script>
+</body>
+</html>
